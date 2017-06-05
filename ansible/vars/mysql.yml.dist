@@ -1,0 +1,11 @@
+mysql_user_password: {{mysql_root_password}}
+mysql_databases:
+  - name: {{mysql_database_name}}
+    encoding: utf8
+    collation: utf8_general_ci
+# Example of user creation
+#mysql_users:
+#  - name: <other_user_name>
+#    host: "%"
+#    password: <other_user_password>
+#    priv: "<database_name>.*:ALL"

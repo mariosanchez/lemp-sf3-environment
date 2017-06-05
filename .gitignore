@@ -1,0 +1,8 @@
+.vagrant
+Vagrantfile
+keys/*
+!keys/.gitkeep
+ansible/inventory/vagrant
+ansible/vars/common.yml
+ansible/vars/mysql.yml
+ansible/playbook.retry

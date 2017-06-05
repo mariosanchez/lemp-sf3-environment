@@ -1,0 +1,20 @@
+nginx_server_names_hash_bucket_size: "128"
+nginx_remove_default_vhost: true
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "{{domain}}"
+    root: "/var/www/{{domain}}/{{document_root}}"
+    index: "{{index_file}} index.php index.html index.htm"
+    state: "present"
+    template: "{{ nginx_vhost_template }}"
+    extra_parameters: |
+      location / {
+          try_files $uri $uri/ /{{index_file}}$is_args$args;
+      }
+      location ~ \.php$ {
+          fastcgi_split_path_info ^(.+\.php)(/.+)$;
+          fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
+          fastcgi_index {{index_file}};
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          include fastcgi_params;
+      }

@@ -1,0 +1,6 @@
+---
+- src: geerlingguy.mysql
+- src: geerlingguy.nginx
+- src: geerlingguy.php
+# Uncomment this for install ansistrano
+#- src: carlosbuenosvinos.ansistrano-deploy

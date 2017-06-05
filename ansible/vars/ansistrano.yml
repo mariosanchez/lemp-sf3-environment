@@ -1,0 +1,9 @@
+ansistrano_deploy_to: "/var/www/"
+ansistrano_deploy_via: "git"
+ansistrano_current_dir: "{{domain}}"
+ansistrano_keep_releases: 1
+
+ansistrano_git_repo: "{{git_repo}}"
+ansistrano_git_branch: master
+
+ansistrano_after_cleanup_tasks_file: "{{ playbook_dir }}/deploy/after-cleanup.yml"

@@ -1,0 +1,23 @@
+---
+- hosts: lemp
+  gather_facts: yes
+  become: true
+  become_user: root
+
+  vars_files:
+    - vars/common.yml
+    - vars/mysql.yml
+    - vars/nginx.yml
+    - vars/php.yml
+# Uncomment this line in order to load ansistrano vars
+#    - vars/ansistrano.yml
+
+  roles:
+    - common
+    - { role: geerlingguy.mysql }
+    - { role: geerlingguy.nginx }
+    - ondrej-repo
+    - { role: geerlingguy.php }
+    - composer
+# Uncomment this line in order to deploy wit ansistrano
+#    - { role: carlosbuenosvinos.ansistrano-deploy }

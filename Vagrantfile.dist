@@ -1,0 +1,21 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.insert_key = false
+  config.ssh.private_key_path = ["<path_to_your_private_ssh_key>", "~/.vagrant.d/insecure_private_key"]
+  config.vm.provision "file", source: "<path_to_your_public_ssh_key>", destination: "~/.ssh/authorized_keys"
+
+  config.vm.define "lemp" do |lemp|
+  	  lemp.vm.box = "bento/ubuntu-16.04"
+      lemp.vm.host_name = "lemp"
+  	  lemp.vm.network "private_network", ip: "192.168.10.12"
+	  lemp.vm.network "forwarded_port", guest: 80, host: 8080
+	  lemp.vm.synced_folder "<your_app_folder>", "/var/www/<your_domain>", type: "rsync"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/playbook.yml"
+    ansible.inventory_path = "ansible/inventory"
+    ansible.sudo = true
+  end
+end

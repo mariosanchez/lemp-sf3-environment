@@ -1,0 +1,13 @@
+# Your preferred application access domain
+domain: <your_domain>
+# Your document root relative to '/var/www/{{domain}}/'. In Symfony3, usually 'web'.
+document_root: <your_document_root>
+# Your app index file/s. In Symfony3, usually app.php.
+index_file: app.php
+# Uncomment this var only if you need to deploy with ansistrano
+#git_repo: "your_repo_url"
+
+# Your MySQL root user password
+mysql_root_password: <your_database_root_password>
+# Your MySQL default database name
+mysql_database_name: <mysql_database_name>
