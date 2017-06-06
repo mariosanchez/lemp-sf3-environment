@@ -76,17 +76,11 @@ Now you need to run the following command in the shell promt:
 vagrant up
 ```
 This may take some minutes because needs to download the Vagrant box and do all the
-setup of the VM and provisioning.
+setup of the VM.
 
 #### Finally
 
-If after the process finished the VM is not provisioned, you'll need to run:
-```
-vagrant provision
-```
-It will run Ansible playbook and install all the environment packages and configs.
-
-You can achive the same result running this command in the `ansible` folder:
+After the VM setup finishes go to `ansible` folder and run:
 ```
 ansible-playbook playbook.yml -i inventory/vagrant
 ```
