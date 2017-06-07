@@ -1,3 +1,10 @@
 - composer:
     command: install
     working_dir: /var/www/html
+
+- name: Change owner (and group) of project folder to dafault php-fpm user
+  file:
+    path: "/var/www/{{domain}}"
+    owner: "www-data"
+    group: "www-data"
+    recurse: true
