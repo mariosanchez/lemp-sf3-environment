@@ -110,4 +110,4 @@ Enjoy your development environment!! 😉
 This is a general purpose environment for personal and academic projects that I want to 
 share with any individual that find it useful for any personal or professional case or 
 activity. Feel free to open an issue if you have any doubt or make a PR if you think that
-something is missing, wrong, ambiguous or you simply cant improve it 😀
+something is missing, wrong, ambiguous or you simply can improve it 😀
