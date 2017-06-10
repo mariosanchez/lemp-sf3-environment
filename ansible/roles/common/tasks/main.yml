@@ -23,3 +23,9 @@
     owner: "www-data"
     group: "www-data"
     recurse: true
+
+- name: Set cache folder permissions for Symfony3
+  shell: >
+    APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data' | grep -v root | head -1 | cut -d ' ' -f1` &&
+    setfacl -R -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX /var/www/{{domain}}/{{symdony3_root}}/var/cache /var/www/{{domain}}/{{symdony3_root}}/var/logs &&
+    setfacl -dR -m u:"$APACHEUSER":rwX -m u:`whoami`:rwX /var/www/{{domain}}/{{symdony3_root}}/var/cache /var/www/{{domain}}/{{symdony3_root}}/var/logs

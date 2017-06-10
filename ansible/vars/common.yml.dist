@@ -2,6 +2,8 @@
 domain: <your_domain>
 # Your document root relative to '/var/www/{{domain}}/'. In Symfony3, usually 'web'.
 document_root: <your_document_root>
+# Your Symfony location realtive to /var/www/{{domain}}/
+symdony3_root: <your_symfony3_root>
 # Uncomment this var only if you need to deploy with ansistrano
 #git_repo: "your_repo_url"
 # Your MySQL root user password
